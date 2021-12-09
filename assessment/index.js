@@ -12,12 +12,11 @@ export function generateLetterTiles(quantity = 8) {
    * If no number is passed, choose 8 letters
    * Push the random letters to the YOUR_LETTERS array
    * */
-
+  let separatedBag = bag.split('')
   for (let i = 0; i < quantity; i++) {
-    let separatedBag = bag.split('')
-    const pos = Math.floor(Math.random() * separatedBag.length)
+    let pos = Math.floor(Math.random() * separatedBag.length)
     YOUR_LETTERS.push(separatedBag[pos])
-    separatedBag = separatedBag.splice(pos, 1)
+    separatedBag.splice(pos, 1)
   }
 }
 
@@ -28,6 +27,12 @@ export function getWordFromPlayer() {
    * If the player submits an empty string, keep on asking them for a word until they don't submit an empty string
    * otherwise, convert their word to lowercase, and return it
    * */
+  while (true) {
+    const word = window.prompt('Submit a word: ')
+    if (word) {
+      return word.toLowerCase()
+    }
+  }
 }
 
 export function removePlayedLetters(playedWord) {
@@ -38,6 +43,11 @@ export function removePlayedLetters(playedWord) {
    * Iterate through every character in playedWord
    * If that character exists in YOUR_LETTERS, remove it from the array.
    * */
+  for (let i = 0; i < playedWord.length; i++) {
+    if (YOUR_LETTERS.includes(playedWord[i])) {
+      YOUR_LETTERS.splice(YOUR_LETTERS.indexOf(playedWord[i]), 1)
+    }
+  }
 }
 
 export function isValidGuess(attemptedWord) {
@@ -48,6 +58,16 @@ export function isValidGuess(attemptedWord) {
    * If it is, return true
    * If not, return false
    * */
+
+  const remainingWords = YOUR_LETTERS.slice()
+  for (let i = 0; i < attemptedWord.length; i++) {
+    if (remainingWords.includes(attemptedWord[i])) {
+      remainingWords.splice(remainingWords.indexOf(attemptedWord[i]), 1)
+    } else {
+      return false
+    }
+  }
+  return true
 }
 
 export function isWordInDictionary(attemptedWord) {
@@ -56,6 +76,7 @@ export function isWordInDictionary(attemptedWord) {
    * Check that 'attemptedWord' exists in the dictionary
    * Hint: use the 'dictionary.find' method
    * */
+  return dictionary.includes(attemptedWord)
 }
 
 /* #############################################################################
