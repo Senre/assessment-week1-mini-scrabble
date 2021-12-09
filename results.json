@@ -1,0 +1,20 @@
+{
+    "passedCases": [],
+    "failedCases": [
+        "Get letter tiles",
+        "Get 8 letter tiles when nothing passed",
+        "Remove played letters",
+        "Check valid word",
+        "Is a played word in dictionary",
+        "Get word from player"
+    ],
+    "passedLOs": [],
+    "status": false,
+    "passed": 0,
+    "failed": 8,
+    "ignored": 0,
+    "measured": 0,
+    "filteredOut": 0,
+    "totalTimeTaken": 96,
+    "score": "0%"
+}
