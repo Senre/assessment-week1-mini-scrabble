@@ -1,0 +1,41 @@
+name: Review Assessment
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Run Tests
+        run: |
+          yarn install
+          CI=true deno run --allow-run config/analyseResults.js > results.json
+          echo ::set-output name=tests::$(cat results.json)
+        id: run_tests
+        continue-on-error: true
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: Tests
+          path: results.json
+      - name: Send JSON
+        uses: actionsflow/axios@v1
+        with:
+          url: https://hooks.zapier.com/hooks/catch/11261305/bdnh41v/ # DEBUG_TEST
+          method: POST
+          body: "${{ steps.extract.outputs.tests }}"
+      - name: Upload Result
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: "results.json"
+          author_name: Results Bot
+          author_email: results@sigmalabs.xyz
