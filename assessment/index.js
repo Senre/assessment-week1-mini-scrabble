@@ -18,7 +18,7 @@ export function getWordFromPlayer() {
   /**
    * @todo ================TASK================
    * Ask the player for a word using window.prompt()
-   * If the player submits an empty string, call getWordFromPlayer() again
+   * If the player submits an empty string, keep on asking them for a word until they don't submit an empty string
    * otherwise, convert their word to lowercase, and return it
    * */
 }
