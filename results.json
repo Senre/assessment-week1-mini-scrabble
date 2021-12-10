@@ -1,20 +1,71 @@
 {
-    "passedCases": [],
-    "failedCases": [
+    "passedCases": [
         "Get letter tiles",
         "Get 8 letter tiles when nothing passed",
         "Remove played letters",
         "Check valid word",
         "Is a played word in dictionary",
-        "Get word from player"
+        "Get word from player",
+        "Get word from player returns in lower case",
+        "Ask player for word again if input is blank"
     ],
-    "passedLOs": [],
-    "status": false,
-    "passed": 0,
-    "failed": 8,
+    "failedCases": [],
+    "passedLOs": [
+        {
+            "loID": "W01-LO01",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO06",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO01",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO06",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO06",
+            "confidence": 0.5
+        },
+        {
+            "loID": "W01-LO06",
+            "confidence": 0.5
+        },
+        {
+            "loID": "W01-LO08",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO08",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO07",
+            "confidence": 1
+        },
+        {
+            "loID": "W01-LO07",
+            "confidence": 1
+        },
+        {
+            "loID": "W01-LO07",
+            "confidence": 0.9
+        },
+        {
+            "loID": "W01-LO08",
+            "confidence": 0.9
+        }
+    ],
+    "status": true,
+    "passed": 8,
+    "failed": 0,
     "ignored": 0,
     "measured": 0,
     "filteredOut": 0,
-    "totalTimeTaken": 86,
-    "score": "0%"
+    "totalTimeTaken": 84,
+    "score": "100%"
 }
